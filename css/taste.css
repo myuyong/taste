@@ -1,0 +1,649 @@
+@font-face {
+    font-family: 'MBC1961GulimM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체 선택자 */
+*{margin: 0; padding:0; box-sizing: border-box;}
+li{list-style: none;}
+a{text-decoration: none; color: #333; display: block;}
+img{width: 100%;}
+h1, h2, h3, h4{
+    font-family: 'MBC1961GulimM';
+}
+h1{
+    font-size: 50px;
+}
+p{display: inline;}
+/* 클래스 선택자 */
+header{
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+}
+.centerBox{
+    width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+header .centerBox nav{
+    width: 70%;
+    margin-left: 50px;
+}
+header .centerBox nav .mainMenu >li{
+    width: 150px;
+    position: relative;
+}
+header .centerBox nav .mainMenu >li:last-child{
+    margin-right:150px;
+}
+header .centerBox nav .mainMenu li a{
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-bottom: 40px;
+}
+header .centerBox nav .mainMenu{
+    display: flex;
+    justify-content:space-between;
+    position: relative;
+}
+
+header .centerBox nav .subMenu{
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    background-color: #d5608b;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+header .centerBox nav .mainMenu .subMenu li {
+    border: 1px solid black;
+    width: 225px;
+    height: 50px;
+    background-color: hotpink;
+    /* padding-top: 1px; */
+} 
+header .centerBox nav .mainMenu .subMenu li a{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+/* 주메뉴에 마우스 오버했을 때 글자색 변경 */
+/* li에 :hover를 붙이면 서브메뉴로 마우스를 내려도 주메뉴의 바뀐 색이 유지됨 */
+header .centerBox nav > ul > li:hover > a {
+    color:#d5608b;
+}
+
+header .centerBox .lang a{
+    display: flex;
+    justify-content: space-between;
+    /* .lang영역에서 자식객체들을 세로 가운데 정렬 */
+    align-items: center;
+}
+header .centerBox .lang a img{
+    /*  원본 크기 유지 initialize:초기화*/
+    width: initial;
+}
+/* 쥬메뉴에 마우스 오버했을 때 서브메뉴 서서히 나타남 */
+header .centerBox nav > ul > li:hover .subMenu{
+    opacity: 1;
+    visibility: visible;
+}
+header .centerBox .lang{
+    position: relative;
+    width: 80px; height: 20px;
+}
+header .centerBox .lang .hd-pop{
+    /* .lang영역과 겹침 */
+    position: absolute;
+    width: 80px;
+    top: 30px; left: 0;
+    padding: 22px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+header .centerBox .lang .hd-pop a{
+    /* a태그의 형제 객체인 :before와 :after와 겹침 */
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding: 12px 26px;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+header .centerBox .lang .hd-pop::before{
+    content: "";
+    /* 형제객체 a태그와 :after와 겹침 */
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-bottom: 8px solid #999;
+}
+header .centerBox .lang .hd-pop::after{
+    /* 형제객체 a태그와 :befroe와 겹침 */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    border: 3px solid transparent;
+    border-bottom: 8px solid #fff;
+}
+/* .lang에 마우스 오버했을 때 말풍선(.hp-pop)나타남 */
+header .centerBox .lang:hover .hd-pop:after{
+    opacity: 1;
+    visibility: visible;
+}
+.sns #s a {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fcf5e3;
+    border-radius: 30px;
+}
+.sns #s a img{
+    width: initial;
+    padding: 5px;
+}
+/* section1 태그 꾸미기 */
+/* grayline 꾸미기 */
+#num1{
+    width: 100%;
+    background-color: #333;
+}
+#num1 .box{
+    width: 1400px;
+    height: 90px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+#num1 .box .button{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    flex-wrap: row nowrap;
+}
+#num1 .box .button .navi{
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    /* margin: 0 50px ; */
+}
+#num1 .box .button .navi a{
+    background-color: #999;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+#num1 .box .button .navi >a:hover{
+    background-color: #d5608b;
+}
+#num1 .box .button .navi:nth-child(2) a:hover{
+    background-color: #0f4722;
+}
+#num2{
+    /* 왜 url 태그가 ../인가? css파일 안에 들어가 있는 taste.css에서 빠져나와서 img 파일을 찾으라는 의미 */
+    background-image: url(../img/background.jpg);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#num2 .centerBox{
+    flex-wrap: nowrap;
+}
+#num2 .centerBox .title h1{
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+#num2 .centerBox h1{
+    font-size: 44px;
+    color: #333;
+    font-family:'MBC1961GulimM';
+    
+}
+#num2 .centerBox .title{
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+}
+#num2 .centerBox .title a{
+    border-radius: 30px;
+    border: 1px solid #333;
+    display: inline-block;
+    padding: 10px 0 10px 20px;
+    font-weight: bold;
+    width:70%
+
+}
+#num2 .centerBox .title p{
+    color: #333;
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+#num2 .centerBox .content ul {
+    display: grid;
+    gap: 50px   ;
+    grid-template-columns: repeat(3,1fr); /*3열*/
+    grid-template-rows: repeat(2,1fr);    /*2행*/
+    padding: 50px;
+}
+#num2 .centerBox .content ul li div{
+    position: relative;
+    border-radius: 100%;
+}
+#num2 .centerBox .content ul li div a{
+    position: relative;
+}
+#num2 .centerBox .content ul li div p{
+    border: 1px solid #999;
+    color: #d5608b;
+    display: inline-block;
+    border-radius: 15px;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    padding: 10px 10px 10px 20px;
+    text-align: center;
+    white-space: nowrap;
+    display: none;
+}
+#num2 .centerBox .content ul li > div a:after{
+    background-color: #333;
+    position: absolute;
+    content: "";
+    opacity: 0;
+    
+}
+#num2 .centerBox .content ul li > div a:hover .after{
+    opacity: 0.75;
+    position: absolute;
+    display: block;
+}
+#num3 .centerBox,#num4 .centerBox,#num5 .centerBox,#num6 .centerBox,#num7 .centerBox{
+    flex-flow: column nowrap;
+    
+}
+#num3{
+    background-color: #fcf5e3;
+    padding: 90px 0;
+    margin: 0 auto;
+}
+#num3 h1{
+    align-items: center;
+    text-align: center;
+}
+#num3 .Chefs{
+    margin-top: 40px;
+    width: 100%;
+}
+#num3 .Chefs ul{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+#num3 .Chefs ul li{
+    padding: 16px;
+    padding-bottom: 50px;
+    background-color: #fff;
+    box-shadow: 0 3px 10px #333;
+    /* 화살표 모양의 커서를 손모양으로 표시하기 링크기능은 없음. */
+    cursor: pointer;
+}
+#num3 .Chefs ul li span{
+    font-size: 14px;
+    color: #cd4575;
+    margin: 14px 0;
+    display: block;
+}
+#num3 .Chefs ul li span i{
+    float: right;
+    color: #333;
+}
+#num3 .Chefs ul li p{
+    font-size: 15px;
+    color: #666;
+}
+#num4{
+    width: 100%;
+    padding: 100px;
+}
+#num4 .centerBox h1{
+    width: 40%;
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+    white-space: nowrap;
+    align-items: center;
+    margin: 50px  auto;
+}
+#num4 .centerBox h1 img{
+    width: 50px;
+    display: inline;
+    object-fit: none;
+}
+#num4 .centerBox .year{
+    width: 800px;
+}
+#num4 .centerBox .year ,.youtube{
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#num4 .centerBox .year ul {
+    margin: 0 auto; 
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+}
+#num4 .centerBox .year ul li{
+    border: 1px solid #333;
+    display: inline;
+    padding: 10px 65px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#num4 .year ul a:first-child li{
+    background-color: #cd4575;
+    color: #fff;
+}
+#num5{
+    background-color: #222;
+    padding: 100px;
+}
+#num5 .centerBox h1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 45px;
+    margin-bottom: 50px;
+}
+#num5 .centerBox div ul {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(1,fr);
+    
+}
+#num5 .centerBox h1 img{
+    width: initial;
+}
+#num5 .centerBox img {
+    object-fit: cover;
+}
+#num5 .centerBox:nth-child(2){
+    position: relative;
+}
+#num5 .centerBox .underline{
+    height: 30px;
+    border-bottom: 3px solid #999;
+    z-index: 1;
+    position: relative;
+}
+#num5 .centerBox .underline::after{
+    content: "";
+    width: 300px;
+    height: 30px;
+    position: absolute;
+    left:40%;
+    z-index: 3;
+    background-color:#222 ;
+}
+/* num6 */
+#num6 .centerBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* padding: 100px; */
+    margin-top: 75px ;
+}
+#num6 .centerBox .headline,.bodyline,.noticeboard{
+    padding: 25px 0;
+}
+#num6 .centerBox >div{
+    width: 50%;
+}
+#num6 .centerBox .announce .headline{
+    display: flex;
+    width: 90%;
+    position: relative;
+    border-bottom: 1px solid #aaa;
+}
+#num6 .centerBox .announce .headline button{
+    position: absolute;
+    right: 0;
+}
+#num6 .centerBox button{
+    background-color: transparent;
+    border:1px solid #aaa;
+    border-radius: 100%;
+    padding: 10px;
+    cursor: pointer;
+    width: 42px;
+}
+#num6 .centerBox .announce .headline h2{
+   font-size: 36px;
+}
+#num6 .centerBox .bodyline{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    border-bottom: 1px solid #aaa;
+}
+#num6 .centerBox .bodyline #event{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+#num6 .centerBox .bodyline #event h3{
+    font-size: 20px;
+}
+#num6 .centerBox .bodyline #event h3 a:hover{
+    text-decoration: 1px underline #999;
+    text-underline-offset:5px;
+    /* border-bottom: 1px solid #999; */
+    color: #476cb3;
+}
+#num6 .centerBox .bodyline #date{
+    border: 5px solid #333;
+    padding: 10px;
+}
+#num6 .centerBox .bodyline #date h3{
+    font-size: 1.5em;
+    text-align: center;
+    color: #cd4575;
+}
+#num6 .centerBox .bodyline #date span{
+    text-align: center;
+}
+#num6 .centerBox .announce .noticeboard{
+    width: 90%;
+}
+#num6 .centerBox .announce .noticeboard ul li{
+    padding-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+#num6 .centerBox .announce .noticeboard ul li a:hover{
+    text-decoration:1px underline #999;
+    color: #476cb3;
+}
+
+#num6 .media .headline{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+#num6 .media .headline h2{
+    font-size: 36px;
+}
+#num6 .media .news{
+    width: 48.5%;
+    height: 300px;
+    border: 1px solid #333;
+    padding: 40px 40px 0 40px;
+}
+#num6 .media .bodyline{
+    width: 100%;
+}
+#num6 .media .bodyline a{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 100%;
+}
+#num6 .media .news h3{
+    display: inline-block;
+}
+#num6 .media .news span{
+    font-size: 12px;
+    opacity: 0.35;
+    padding-top: 15px;
+}
+#num6 .media .news h4{
+    background-color: #d5608b;
+    display: inline;
+    padding: 5px 5px;
+    width: 80px;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+}
+#num6 .media .bodyline{
+    border: none;
+    padding: 0;
+}
+#num6 .media .news {
+    position: relative;
+}
+#num6 .media .news a b{
+    z-index: 3;
+    padding-top:57px;
+}
+#num6 .media .news .news_list {
+    position:absolute;
+    background-color: #333;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+}
+#num6 .media .news:hover{
+    border: 1px solid #cd4575;
+}
+#num6 .media .news:hover .news_list{
+    background-color: #cd4575;
+}
+#num7{
+    background-image: url(../img/ft-gate-bg.jpg);
+    overflow: hidden;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    margin-top:150px;
+}
+#num7 .centerBox{
+    padding-top: 70px;
+}
+#num7 .seoul{
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+#num7 .seoul > img{
+    width: initial;
+}
+#num7 .seoul ul{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+#num7 .seoul ul li{
+    font-size: 16px;
+    border: 2px solid #666;
+    border-radius: 40px;
+    padding: 15px 40px;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -1px;
+}
+#num7 .seoul ul li i{
+    padding-left: 10px;
+}
+#num7 .seoul ul a:hover li{
+    background-color: #cd4575;
+}
+/* footer작업 */
+footer{
+    height: 250px;
+    background-color: #333;
+    display: flex;
+}
+footer img{
+    object-fit: none;
+}
+footer .centerBox{
+    align-items: center;
+}
+footer .centerBox div:first-child{
+    display: flex;
+}
+footer .centerBox div:first-child div{
+    white-space: nowrap;
+    padding-left:70px ;
+}
+footer .centerBox div:first-child div p{
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+footer .centerBox div:first-child div h5{
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    letter-spacing: -0.025em;
+}
+footer .centerBox .logoIcons{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 15px;
+    align-items: center;
+}
+footer .centerBox div:nth-child(2){
+    width: 250px;
+    letter-spacing: -1px;
+}
+footer .centerBox div:nth-child(2) div:nth-child(2){
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    opacity: 0.7;
+}
